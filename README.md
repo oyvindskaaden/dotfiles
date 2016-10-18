@@ -53,5 +53,5 @@ and copy the wanted files into your home folder in their respected folder
 
 
 - These files are edited regularly. 
-- They may not work for you, while it works for me. 
-- If you encounter a bug, don't come to me for help... (Try to fix it yourself, it's a great way to learn)
+- They may not work for you, while it works for me. (Try to fix it yourself, it's a great way to learn)
+- If you encounter a bug, don't come to me for help... 
