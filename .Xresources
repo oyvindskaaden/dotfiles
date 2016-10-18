@@ -1,0 +1,104 @@
+!---------------------------------------------------
+! urxvt config settings
+!---------------------------------------------------
+*geometry:         80x21
+
+URxvt*font:              xft:Ubuntu Mono:size=12:antiajias=false:hinting=false:autohint=false
+URxvt*boldFont:          xft:Ubuntu Mono:bold:size=12:antialias=false:hinting=false:autohint=false
+
+! URxvt*font:              -ypn-envypn-medium-r-normal--13-130-75-75-c-90-iso8859-1
+! URxvt*boldFont:          -ypn-envypn-medium-r-normal--13-130-75-75-c-90-iso8859-1
+
+URxvt.savelines:        500
+URxvt*scrollBar:        false
+
+! do not scroll with output
+URxvt*scrollTtyOutput:  false
+
+! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+URxvt*scrollWithBuffer: true
+
+! scroll back to the bottom on keypress
+URxvt*scrollTtyKeypress: true
+
+! scroll a single line
+URxvt.keysym.Shift-Up: command:\033]720;1\007
+URxvt.keysym.Shift-Down: command:\033]721;1\007
+
+! clipboard management
+URxvt.perl-ext-common:  default,clipboard
+URxvt.keysym.M-c:   perl:clipboard:copy
+URxvt.keysym.M-v:   perl:clipboard:paste
+
+! dzen2
+dzen2.font:       monospace:pixelsize=10
+dzen2.foreground: #a0a0a0
+dzen2.background: #262626
+
+/* Rofi */
+#define r_bg   #1d2021
+#define r_fg   #ebdbb2
+#define r_hlfg #d65d0e
+
+States: bg, fg, bgalt, hlbg, hlfg
+rofi.color-enabled: true
+rofi.color-normal: r_bg,r_fg,#282828,r_bg,r_hlfg
+rofi.color-urgent: r_bg,#fb4934,#282828,r_bg,r_hlfg
+rofi.color-active: r_bg,r_fg,#282828,r_bg,#fe8019
+! states: background, border
+rofi.color-window: r_bg,#d5c4a1
+
+rofi.separator-style: solid
+rofi.sidebar-mode: true
+rofi.bw: 1
+rofi.columns: 1
+rofi.padding: 16
+
+rofi.yoffset: 0
+rofi.opacity: 80
+rofi.fake-transparency: false
+rofi.location: 0
+rofi.width: 50
+rofi.font: RobotoMono 12
+rofi.lines: 15
+
+!-------------------------------------------------------------------------------
+! Xft settings
+!-------------------------------------------------------------------------------
+
+Xft.dpi:                    96
+Xft.antialias:              true
+Xft.rgba:                   rgb
+Xft.hinting:                true
+Xft.hintstyle:              hintslight
+
+!-------------------------------------------------------------------------------
+! Urxvt settings
+!-------------------------------------------------------------------------------
+
+URxvt*scrollBar:	false 
+
+URxvt.background: 	#96b4c6
+URxvt.foreground: 	#e0dce6
+
+URxv.color0: 		#303030
+URxvt.color8: 		#5d5d5d
+URxvt.color1: 		#e1321a
+URxvt.color9: 		#FF361E
+URxvt.color2: 		#6AB017
+URxvt.color10: 		#7BC91F
+URxvt.color3: 		#FFC005
+URxvt.color11: 		#FFD00A
+URxvt.color4: 		#004F9E
+URxvt.color12: 		#0071FF
+URxvt.color5: 		#EC0048
+URxvt.color13: 		#FF1D62
+URxvt.color6: 		#2AA7E7
+URxvt.color14: 		#4BB8FD
+URxvt.color7: 		#F2F2F2
+URxvt.color15: 		#A020F0
+URxvt*cursorColor:	#aaaaaa
+URxvt*transparent: 	true
+URxvt*shading:		70
+URxvt*blurRadius:	7
+URxvt.fading:		30
