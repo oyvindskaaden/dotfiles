@@ -1,0 +1,22 @@
+background yes
+out_to_console yes
+out_to_x no
+# Update interval in seconds
+update_interval 1
+ 
+TEXT
+^fg(\#00b159) \
+^i(/home/oyvind/.xmonad/dzen/cpu.xbm) \
+^fg(\#00B159)${cpu}% \
+^fg(\#EA0000) \
+^i(/home/oyvind/.xmonad/dzen/mem.xbm) \
+^fg(\#EA0000)${memperc}% \
+^fg() |  \
+^fg(\#0057E7)${execi 1 /home/oyvind/.xmonad/bat0.sh} \
+^fg() \
+^fg(\#00DEAD)${execi 1 /home/oyvind/.xmonad/bat1.sh} \
+^fg() | \
+^fg(\#FFFFFF) ${time %d %m %Y} \
+^fg(\#ebac54) ${time %R} \
+^i(/home/oyvind/.xmonad/dzen/clock.xbm) \
+^fg()
