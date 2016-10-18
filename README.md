@@ -1,6 +1,6 @@
 # oyvindskaaden's dotfiles 
 
-This cofig is mainly for my personal ThinkPad T450, but with a little tweaking, it should work for you
+This config is mainly for my personal ThinkPad T450, but with a little tweaking, it should work for you
 
 If you want to use these dotfiles on your Linux system, use:
 
