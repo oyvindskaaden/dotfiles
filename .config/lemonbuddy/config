@@ -16,8 +16,8 @@ height = 27
 offset-x = 0
 offset-y = 0
 
-background = #ee222222
-foreground = #ccfafafa
+background = #222222
+foreground = #fafafa
 linecolor = #666
 
 border-bottom = 2
@@ -37,8 +37,8 @@ font-3 = FontAwesome:size=10;0
 font-4 = MaterialIcons:size=10;-1
 
 modules-left = bspwm 
-modules-center = date
-modules-right = volume backlight battery battery1  
+modules-center = date 
+modules-right = volume backlight battery1 battery  
 ;memory cpu backlight battery date
 
 tray-position = right
@@ -83,6 +83,7 @@ ws-icon-1 = chrome;
 ws-icon-2 = code;
 ws-icon-3 = music;
 ws-icon-4 = com;
+ws-icon-5 = gimp;
 ws-icon-default = 
 
 format = <label-state>
@@ -339,7 +340,7 @@ label-discharging = DB1 %percentage%
 
 ; Available tokens:
 ;   %percentage% (default)
-label-full = FB1
+label-full =    FB1
 
 ; Only applies if <ramp-capacity> is used
 ramp-capacity-0 = 
@@ -404,7 +405,7 @@ label-discharging = DB0 %percentage%
 
 ; Available tokens:
 ;   %percentage% (default)
-label-full = FB0
+label-full =    FB0
 
 ; Only applies if <ramp-capacity> is used
 ramp-capacity-0 = 
