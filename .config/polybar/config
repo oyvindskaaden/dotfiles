@@ -1,0 +1,579 @@
+;=====================================================
+;
+;   To learn more about how to configure Lemonbuddy
+;   go to https://github.com/jaagr/lemonbuddy
+;
+;   The README contains alot of information
+;
+;=====================================================
+
+
+[bar/top]
+;monitor = eDP1
+dock = true
+width = 100%
+height = 27
+offset-x = 0
+offset-y = 0
+
+background = #222222
+foreground = #fafafa
+linecolor = #666
+
+border-bottom = 2
+border-bottom-color = #333
+
+spacing = 4
+lineheight = 1
+padding-left = 0
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = tamzen:size=9;1
+font-1 = siji:pixelsize=10;0
+font-2 = unifont:size=6;-1
+font-3 = FontAwesome:size=10;0
+font-4 = MaterialIcons:size=10;-1
+
+modules-left = bspwm 
+modules-center = xwindow 
+modules-right = volume backlight battery1 battery date 
+;memory cpu backlight battery date
+
+tray-position = right
+tray-background = #222222
+wm-restack = bspwm
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+
+[bar/external_bottom]
+monitor = HDMI-1
+dock = false
+bottom = true
+width = 100%
+height = ${bar/top.height}
+
+background = ${bar/top.background}
+foreground = ${bar/top.foreground}
+linecolor = ${bar/top.linecolor}
+
+border-top = 2
+border-top-color = #333
+
+spacing = ${bar/top.spacing}
+lineheight = ${bar/top.lineheight}
+padding-right = ${bar/top.padding_right}
+module-margin-left = 0
+module-margin-right = ${bar/top.module_margin_right}
+
+font-0 = ${bar/top.font-0}
+font-1 = ${bar/top.font-1}
+font-2 = ${bar/top.font-2}
+
+modules-left = bspwm
+modules-right = date powermenu
+
+wm-restack = ${bar/top.wm-restack}
+
+[module/bspwm]
+type = internal/bspwm
+
+ws-icon-0 = term;
+ws-icon-1 = chrome;
+ws-icon-2 = code;
+ws-icon-3 = music;
+ws-icon-4 = com;
+ws-icon-5 = gimp;
+ws-icon-default = 
+
+format = <label-state>
+; <label-mode>
+
+; label-dimmed-underline = ${BAR.background}
+
+label-active = %icon%
+label-active-foreground = #fff
+label-active-background = #3f3f3f
+label-active-underline = #ffa500
+label-active-font = 4
+label-active-padding = 4
+
+label-occupied = %icon%
+label-occupied-foreground = #dd
+label-occupied-background = #222222
+label-occupied-underline = #ff6666
+label-occupied-font = 4
+label-occupied-padding = 4
+
+label-urgent = %icon%
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c40
+label-urgent-underline = #9b0a20
+label-urgent-font = 4
+label-urgent-padding = 4
+
+label-empty = %icon%
+label-empty-foreground = #44
+label-empty-background = #222222
+label-empty-font = 4
+label-empty-padding = 4
+
+
+;; Available tokens:
+;;   None
+;label-tiled = 
+label-monocle = 
+label-monocle-underline = ${module/bspwm.label-active-underline}
+label-monocle-background = #33ffffff
+label-monocle-padding = 2
+
+label-locked = 
+label-locked-foreground = #bd2c40
+label-locked-underline = ${module/bspwm.label-monocle-underline}
+label-locked-padding = ${module/bspwm.label-monocle-padding}
+
+label-sticky = 
+label-sticky-foreground = #fba922
+label-sticky-underline = ${module/bspwm.label-monocle-underline}
+label-sticky-padding = ${module/bspwm.label-monocle-padding}
+
+label-private = 
+label-private-foreground = #bd2c40
+label-private-underline = ${module/bspwm.label-monocle-underline}
+label-private-padding = ${module/bspwm.label-monocle-padding}
+
+label-fullscreen = 
+label-fullscreen-foreground = #bd2c40
+label-fullscreen-underline = ${module/bspwm.label-monocle-underline}
+label-fullscreen-padding = ${module/bspwm.label-monocle-padding}
+
+label-floating = 
+label-floating-foreground = #bd2c40
+label-floating-underline = ${module/bspwm.label-monocle-underline}
+label-floating-padding = ${module/bspwm.label-monocle-padding}
+
+[module/backlight]
+type = internal/backlight
+card = intel_backlight
+format = <ramp> 
+; <bar>
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+
+bar-width = 10
+bar-format = %{A4:backlight_percentage%__p5:}%{A5:backlight_percentage%__m5:}%{+u}%{+o}%fill%%{-u}%{-o}%indicator%%{+u}%{+o}%empty%%{-u}%{-o}%{A}%{A}
+bar-indicator = |
+bar-indicator-foreground = #ff
+bar-indicator-font = 3
+bar-fill = █
+bar-fill-foreground = #bb
+bar-fill-font = 3
+bar-empty = █
+bar-empty-font = 3
+bar-empty-foreground = #44
+
+[module/cpu]
+
+type = internal/cpu
+interval = 1.0
+format = <label> <ramp-coreload> 
+; <bar-load> 
+label = CPU
+
+bar-load-width = 30
+bar-load-foreground-0 = #aaff77
+bar-load-foreground-1 = #aaff77
+bar-load-foreground-2 = #fba922
+bar-load-foreground-3 = #ff5555
+bar-load-indicator = |
+bar-load-indicator-font = 6
+bar-load-indicator-foreground = #ff
+bar-load-fill = ─
+bar-load-fill-font = 6
+bar-load-empty = ─
+bar-load-empty-font = 6
+bar-load-empty-foreground = #444444
+
+ramp-coreload-0 = ▁
+ramp-coreload-0-font = 2
+ramp-coreload-0-foreground = #aaff77
+ramp-coreload-1 = ▂
+ramp-coreload-1-font = 2
+ramp-coreload-1-foreground = #aaff77
+ramp-coreload-2 = ▃
+ramp-coreload-2-font = 2
+ramp-coreload-2-foreground = #aaff77
+ramp-coreload-3 = ▄
+ramp-coreload-3-font = 2
+ramp-coreload-3-foreground = #aaff77
+ramp-coreload-4 = ▅
+ramp-coreload-4-font = 2
+ramp-coreload-4-foreground = #fba922
+ramp-coreload-5 = ▆
+ramp-coreload-5-font = 2
+ramp-coreload-5-foreground = #fba922
+ramp-coreload-6 = ▇
+ramp-coreload-6-font = 2
+ramp-coreload-6-foreground = #ff5555
+ramp-coreload-7 = █
+ramp-coreload-7-font = 2
+ramp-coreload-7-foreground = #ff5555
+
+
+[module/memory]
+type = internal/memory
+format = <label>
+;<bar-used> <label>
+
+; label = RAM %gb_used%
+label = RAM %percentage_used% %gb_used%
+;%percentage_free% %gb_used% %gb_free% %gb_total% %mb_used% %mb_free% %mb_total%
+
+;values-forground = #fba922
+
+interval = 1
+
+bar-used-width = 30
+bar-used-foreground-0 = #aaff77
+bar-used-foreground-1 = #aaff77
+bar-used-foreground-2 = #fba922
+bar-used-foreground-3 = #ff5555
+bar-used-indicator = |
+bar-used-indicator-font = 6
+bar-used-indicator-foreground = #ff
+bar-used-fill = ─
+bar-used-fill-font = 6
+bar-used-empty = ─
+bar-used-empty-font = 6
+bar-used-empty-foreground = #444444
+
+[module/wifi]
+type = internal/network
+interface = wlp3s0
+interval = 3.0
+;udspeed-minwidth = 3
+
+format-connected = <ramp-signal> <label-connected>
+;label-connected = %essid% %{F#66}%local_ip%
+;label-connected = %{F#666}%{F#cc} %upspeed% %{F#666}%{F#cc} %downspeed%
+label-connected = %{O-6 F#666}%{O2 F#cc}%downspeed%
+label-disconnected = %{F#666}%{F#cc} not connected
+label-disconnected-foreground = #66
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = #666
+
+
+[module/wired]
+type = internal/network
+interface = net0
+interval = 3.0
+
+label-connected = %{T3}%local_ip%%{T-}
+label-disconnected = %{T3}Not connected%{T-}
+label-disconnected-foreground = #66
+
+[module/date]
+type = internal/date
+interval = 5
+
+date =
+date-alt = " %Y-%m-%d"
+
+time = %H:%M
+time-alt = %H:%M:%S
+
+format-prefix = 
+;format-prefix-foreground = ${colors.foreground-alt}
+;format-underline = #0a6cf5
+
+label = %date% %time%
+
+
+[module/dateAlt]
+type = internal/date
+date = %%{F#666}%{F#cc} %Y-%m-%d  %%{F#e60053}%%{F#cc} %H:%M
+date-alt = %%{F#666}%{F#cc} %Y-%m-%d  %%{F#e60053}%%{F#cc} %H:%M:%S
+interval = 5
+
+[module/volume]
+type = internal/volume
+speaker-mixer = Speaker
+headphone-mixer = Headphone
+headphone-id = 9
+
+format-volume = <ramp-volume> <label-volume>
+label-muted =   muted
+label-muted-foreground = #66
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-3 = 
+
+[module/battery]
+type = internal/battery
+
+; This is useful in case the battery never reports 100% charge
+full-at = 99
+
+; Use the following command to list batteries and adapters:
+; $ ls -1 /sys/class/power_supply/
+battery = BAT1 
+adapter = AC
+; Available tags:
+;   <label-charging> (default)
+;   <bar-capaity>
+;   <ramp-capacity>
+;   <animation-charging>
+format-charging = <animation-charging> <label-charging>
+
+; Available tags:
+;   <label-discharging> (default)
+;   <bar-capaity>
+;   <ramp-capacity>
+format-discharging = <ramp-capacity> <label-discharging>
+
+; Available tags:
+;   <label-full> (default)
+;   <bar-capaity>
+;   <ramp-capacity>
+;format-full = <ramp-capacity> <label-full>
+
+; Available tokens:
+;   %percentage% (default)
+label-charging = CB1 %percentage%
+
+; Available tokens:
+;   %percentage% (default)
+label-discharging = DB1 %percentage%
+
+; Available tokens:
+;   %percentage% (default)
+label-full =    FB1
+
+; Only applies if <ramp-capacity> is used
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+; Only applies if <bar-capacity> is used
+bar-capacity-width = 10
+
+; Only applies if <animation-charging> is used
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+
+; Framerate in milliseconds
+animation-charging-framerate = 750
+
+; Seconds between reading battery capacity.
+; If set to 0, polling will be disabled.
+poll-interval = 3
+
+[module/battery1]
+type = internal/battery
+
+; This is useful in case the battery never reports 100% charge
+full-at = 99
+
+; Use the following command to list batteries and adapters:
+; $ ls -1 /sys/class/power_supply/
+battery = BAT0
+adapter = AC
+; Available tags:
+;   <label-charging> (default)
+;   <bar-capaity>
+;   <ramp-capacity>
+;   <animation-charging>
+format-charging = <animation-charging> <label-charging>
+
+; Available tags:
+;   <label-discharging> (default)
+;   <bar-capaity>
+;   <ramp-capacity>
+format-discharging = <ramp-capacity> <label-discharging>
+
+; Available tags:
+;   <label-full> (default)
+;   <bar-capaity>
+;   <ramp-capacity>
+;format-full = <ramp-capacity> <label-full>
+
+; Available tokens:
+;   %percentage% (default)
+label-charging = CB0 %percentage%
+
+; Available tokens:
+;   %percentage% (default)
+label-discharging = DB0 %percentage%
+
+; Available tokens:
+;   %percentage% (default)
+label-full =    FB0
+
+; Only applies if <ramp-capacity> is used
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+; Only applies if <bar-capacity> is used
+bar-capacity-width = 10
+
+; Only applies if <animation-charging> is used
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+
+; Framerate in milliseconds
+animation-charging-framerate = 750
+
+; Seconds between reading battery capacity.
+; If set to 0, polling will be disabled.
+poll-interval = 3
+
+
+
+[module/mpd]
+type = internal/mpd
+
+format-online = <label-time>  <bar-progress>  <label-song>  <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next>  <icon-repeat> <icon-random>
+format-online-background = #ee333333
+format-online-underline = #cc333333
+format-online-padding = 3
+
+format-offline = <label-offline>
+format-offline-foreground = #66
+
+label-offline = mpd is off
+
+label-song-maxlen = 45
+label-song-ellipsis = true
+
+;icon-prev = 
+;icon-seekb = 
+;icon-stop = 
+;icon-play = 
+;icon-pause = 
+;icon-next = 
+;icon-seekf = 
+icon-prev = ⏮
+icon-seekb = ⏪
+icon-stop = ⏹
+icon-play = ⏵
+icon-pause = ⏸
+icon-seekf = ⏩
+icon-next = ⏭
+
+icon-random = 
+icon-repeat = 
+
+toggle-on-foreground = #e60053
+toggle-off-foreground = #66
+
+bar-progress-width = 15
+bar-progress-indicator = 
+bar-progress-indicator-foreground = #bb
+bar-progress-fill = ─
+bar-progress-fill-foreground = #bb
+bar-progress-fill-font = 3
+bar-progress-empty = ─
+bar-progress-empty-foreground = #44
+bar-progress-empty-font = 3
+
+label-time-foreground = #77
+
+
+[module/powermenu]
+type = custom/menu
+
+format-padding = 5
+
+label-open = 
+label-close = 
+
+menu-0-0 = Terminate WM
+menu-0-0-foreground = #fba922
+menu-0-0-exec = bspc quit -1
+menu-0-1 = Reboot
+menu-0-1-foreground = #fba922
+menu-0-1-exec = menu-open-1
+menu-0-2 = Power off
+menu-0-2-foreground = #fba922
+menu-0-2-exec = menu-open-2
+
+menu-1-0 = Cancel
+menu-1-0-foreground = #fba922
+menu-1-0-exec = menu-open-0
+menu-1-1 = Reboot
+menu-1-1-foreground = #fba922
+menu-1-1-exec = sudo reboot
+
+menu-2-0 = Power off
+menu-2-0-foreground = #fba922
+menu-2-0-exec = sudo poweroff
+menu-2-1 = Cancel
+menu-2-1-foreground = #fba922
+menu-2-1-exec = menu-open-0
+
+;type = custom/menu
+;
+;label-open = 
+;label-close = 
+;label-separator = /
+;
+;menu-0-0 = Terminate WM
+;menu-0-0-foreground = #e60053
+;menu-0-0-exec = bspc quit -1
+;menu-0-1 = Reboot
+;menu-0-1-foreground = #e60053
+;menu-0-1-exec = menu-open-1
+;menu-0-2 = Power off
+;menu-0-2-foreground = #e60053
+;menu-0-2-exec = menu-open-2
+;
+;menu-1-0 = Cancel
+;menu-1-0-foreground = #e60053
+;menu-1-0-exec = menu-open-0
+;menu-1-1 = Reboot
+;menu-1-1-foreground = #e60053
+;menu-1-1-exec = sudo reboot
+;
+;menu-2-0 = Power off
+;menu-2-0-foreground = #e60053
+;menu-2-0-exec = sudo poweroff
+;menu-2-1 = Cancel
+;menu-2-1-foreground = #e60053
+;menu-2-1-exec = menu-open-0
+
+
+[module/counter]
+type = internal/counter
+format = <counter>
+interval = 0.1
+
+[module/xtitle]
+type = custom/script
+exec = xtitle -s
+tail = true
+maxlen = 25
+
+; vim:ft=dosini

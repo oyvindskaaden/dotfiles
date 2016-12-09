@@ -39,7 +39,7 @@ spotify &
 slack &
 # xautolock -time 4 -locker "/usr/local/bin/lock -p" -detectsleep & 
 
-xautolock -time 4 -locker "i3lock -i Pictures/BSOD.png" -detectsleep & 
+xautolock -time 4 -locker "i3lock -i Pictures/trgg.png" -detectsleep & 
 
 killall -q notify-osd &
 dunst -config ~/.config/dunstrc &
@@ -50,8 +50,8 @@ dropbox start &
 
 #./batMon.sh &
 
-#lemonbuddy top &
-$HOME/.config/lemonbuddy/launch.sh &
+#polybar top &
+$HOME/.config/polybar/launch.sh &
 
 # Launch differnent programs and move them
 $HOME/.config/bspwm/moveWindow.sh 
