@@ -17,8 +17,8 @@ and copy the wanted files into your home folder in their respected folder
 * [bspwm](https://github.com/baskerville/bspwm) window manager
   - Followed [this](https://github.com/windelicato/dotfiles/wiki/bspwm-for-dummies) guide by windelicato
 * [dunst](https://github.com/knopwob/dunst) notification daemon
-* [lemonbuddy](https://github.com/jaagr/lemonbuddy) as a panel bar
-  - You need additional fonts for lemonbuddy to work properly
+* [polybar](https://github.com/jaagr/polybar) as a panel bar
+  - You need additional fonts for polybar to work properly
   - [Tamzen font](https://github.com/sunaku/tamzen-font), follow instructions on site
   - [Siji font](https://github.com/stark/siji), follow instructions on site
   - [Unifont](http://unifoundry.com/unifont.html), download the .ttf file and install
